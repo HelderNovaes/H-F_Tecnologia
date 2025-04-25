@@ -4,19 +4,36 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
   <title>Venta de Teléfonos</title>
   <style>
+    :root {
+      --verde-whatsapp: #25D366;
+      --verde-hover: #128C7E;
+      --gris-oscuro: #1e1e2f;
+      --fondo: #f9f9f9;
+      --texto: #333;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--fondo);
+      color: var(--texto);
       margin: 0;
       padding: 0;
+    }
+
+    header {
+      background: var(--gris-oscuro);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .xiaomi-section {
       position: relative;
       width: 100%;
-      height: 500px; /* Ajuste conforme necessário */
+      height: 500px;
       overflow: hidden;
       color: white;
     }
@@ -40,7 +57,7 @@
     .slide-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* A imagem irá cobrir o container sem distorcer */
+      object-fit: cover;
       display: block;
     }
 
@@ -54,6 +71,12 @@
       background-color: rgba(0, 0, 0, 0.4);
       padding: 2rem;
       border-radius: 10px;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -40%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
     }
 
     .xiaomi-content h1 {
@@ -68,19 +91,20 @@
 
     .xiaomi-content a {
       display: inline-block;
-      background: #25D366;
+      background: var(--verde-whatsapp);
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1.5rem;
       border-radius: 5px;
       text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       transition: background 0.3s;
     }
 
     .xiaomi-content a:hover {
-      background: #128C7E;
+      background: var(--verde-hover);
     }
 
-    /* Container de produtos */
     .container {
       max-width: 1200px;
       margin: auto;
@@ -96,6 +120,11 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 1rem;
       text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card img {
@@ -115,7 +144,7 @@
     .card a {
       display: inline-block;
       margin-top: 0.5rem;
-      background: #25D366;
+      background: var(--verde-whatsapp);
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 5px;
@@ -124,7 +153,7 @@
     }
 
     .card a:hover {
-      background: #128C7E;
+      background: var(--verde-hover);
     }
 
     section {
@@ -135,11 +164,53 @@
       background: white;
       text-align: center;
     }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 2rem 0;
+    }
+
+    footer a {
+      color: var(--verde-whatsapp);
+    }
+
+    #btn-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--verde-whatsapp);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      text-align: center;
+      display: none;
+      z-index: 100;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    #btn-top:hover {
+      background: var(--verde-hover);
+    }
+
+    @media (max-width: 768px) {
+      .xiaomi-content h1 {
+        font-size: 2rem;
+      }
+      .xiaomi-content p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
-<body>
 
-  <!-- Xiaomi Section com slide -->
+<body>
+  <a href="#" id="btn-top" title="Volver arriba">⬆</a>
+
+  
+
   <section class="xiaomi-section">
     <div class="slide-background" id="slideBackground">
       <div class="slide-item"><img src="img/1.png" alt="Slide 1" /></div>
@@ -154,90 +225,107 @@
     </div>
   </section>
 
-  <!-- Produto destacado -->
   <section>
     <h2>Producto destacado</h2>
     <img alt="Xiaomi Redmi 14C" src="img/xiaomi14c_promocional..png" style="width:100%;max-width:400px;border-radius:10px;"/>
     <p><strong>Xiaomi Redmi 14C</strong> - Celular de alto rendimiento, ideal para tu día a día. Garantía incluida y entrega en toda Bolivia.</p>
   </section>
-
-  <div class="container">
-    <div class="card">
-      <img alt="Teléfono 1" src="img/samsung A6.jpg"/>
-      <h2>Samsung A6</h2>
-      <h3>6 GB de RAM</h3>
-      <h3>128 GB de almacenamiento</h3>
-      <p>Precio: Bs 2000</p>
-      <a href="https://wa.me/59167728519?text=Quiero%20este%20art%C3%ADculo%3A%20Samsung%20A6" target="_blank">Contactar por WhatsApp</a>
-    </div>
-    <div class="card">
-      <img alt="Teléfono 2" src="img/Samsung A16.png"/>
-      <h2>Samsung A16</h2>
-      <h3>6 GB de RAM</h3>
-      <h3>128 GB de almacenamiento</h3>
-      <p>Precio: Bs 2750</p>
-      <a href="https://wa.me/59167728519?text=Quiero%20este%20art%C3%ADculo%3A%20Samsung%20A16" target="_blank">Contactar por WhatsApp</a>
-    </div>
+  <div style="text-align:center; padding: 1rem;">
+    <input type="text" id="filtro" placeholder="Buscar por nombre o características..." style="padding: 0.5rem; width: 80%; max-width: 400px;"/>
+  </div>
+  <div class="container" id="productos-container">
+    <!-- Aquí se cargarán los productos con JavaScript -->
   </div>
 
-  <!-- Quiénes somos -->
   <section>
     <h2>¿Quiénes somos?</h2>
     <p>Somos un emprendimiento boliviano que ofrece celulares nuevos, con garantía y atención personalizada. Nuestro objetivo es brindarte la mejor tecnología a precios accesibles, con entrega rápida y segura en Santa Cruz y todo el país.</p>
   </section>
 
+  
+
   <script>
-    // JavaScript para controle do slideshow
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.slide-item');
-    const slideBackground = document.getElementById('slideBackground');
+    const btnTop = document.getElementById('btn-top');
+    window.addEventListener('scroll', () => {
+      btnTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
 
-    function changeSlide() {
-      // Incrementar o índice atual
-      currentIndex = (currentIndex + 1) % slides.length;
-      
-      // Mudar a posição do slide para a próxima imagem
-      slideBackground.style.transform = `translateX(-${100 * currentIndex}%)`;
-    }
+    const productos = [
+      {
+        nombre: "Samsung A6",
+        ram: "6 GB de RAM",
+        almacenamiento: "128 GB de almacenamiento",
+        precio: "Bs 2000",
+        imagen: "img/samsung A6.jpg",
+        link: "Samsung%20A6"
+      },
+      {
+        nombre: "Samsung A16",
+        ram: "6 GB de RAM",
+        almacenamiento: "128 GB de almacenamiento",
+        precio: "Bs 2750",
+        imagen: "img/Samsung A16.png",
+        link: "Samsung%20A16"
+      },
+      {
+        nombre: "Xiaomi Note 11",
+        ram: "4 GB de RAM",
+        almacenamiento: "64 GB de almacenamiento",
+        precio: "Bs 1850",
+        imagen: "img/xiaomi_note11.jpg",
+        link: "Xiaomi%20Note%2011"
+      },
+      {
+        nombre: "Motorola G31",
+        ram: "6 GB de RAM",
+        almacenamiento: "128 GB de almacenamiento",
+        precio: "Bs 2100",
+        imagen: "img/motorola_g31.jpg",
+        link: "Motorola%20G31"
+      }
+    ];
 
-    // Trocar de imagem a cada 3 segundos
-    setInterval(changeSlide, 3000);
+    const container = document.getElementById('productos-container');
+    productos.forEach(producto => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img alt="${producto.nombre}" src="${producto.imagen}"/>
+        <h2>${producto.nombre}</h2>
+        <h3>${producto.ram}</h3>
+        <h3>${producto.almacenamiento}</h3>
+        <p>Precio: ${producto.precio}</p>
+        <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${producto.link}" target="_blank">
+          Contactar por WhatsApp
+        </a>
+      `;
+      container.appendChild(card);
+    });
+
+    const inputFiltro = document.getElementById('filtro');
+    inputFiltro.addEventListener('input', () => {
+      const texto = inputFiltro.value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const contenido = card.textContent.toLowerCase();
+        card.style.display = contenido.includes(texto) ? 'block' : 'none';
+      });
+    });
   </script>
-
 </body>
-<footer style="background-color: #333; color: white; padding: 2rem 0;">
-  <div style="text-align: center; margin-bottom: 1rem;">
-    <p>&copy; 2023 Venta de Teléfonos. Todos los derechos reservados.</p>
-  </div>
-
-  <div style="text-align: center; margin-bottom: 1rem;">
-    <p>Desarrollado por Helder Novaes</p>
-  </div>
-
-  <div style="text-align: center; margin-bottom: 1rem;">
-    <p>Teléfono: <strong>+591 67728519</strong></p>
-    <p>Email: <strong><a href="mailto:helderpes@gmail.com" style="color: #25D366;">helderpes@gmail.com</a></strong></p>
-    <p>Ubicación: <strong>Basilio km 48, La Guardia, Santa Cruz, Bolivia</strong></p>
-  </div>
-
-  <div style="text-align: center; margin-bottom: 1rem;">
-    <p>Síguenos en nuestras redes sociales</p>
-    <div style="font-size: 1.5rem;">
-      <a href="https://www.instagram.com/hn_solution_/" target="_blank" style="color: #fff; margin: 0 10px; transition: color 0.3s;">
-        <i class="fab fa-instagram"></i> Instagram
-      </a> |
-      <a href="https://wa.me/59167728519?text=Hola%2C%20quiero%20más%20información%20sobre%20el%20Xiaomi%20Redmi%2014C" target="_blank" style="color: #fff; margin: 0 10px; transition: color 0.3s;">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
+<footer>
+    <div style="text-align: center;">
+      <p>&copy; 2023 Venta de Teléfonos. Todos los derechos reservados.</p>
+      <p>Desarrollado por Helder Novaes</p>
+      <p>Teléfono: <strong>+591 67728519</strong></p>
+      <p>Email: <strong><a href="mailto:helderpes@gmail.com">helderpes@gmail.com</a></strong></p>
+      <p>Ubicación: <strong>Basilio km 48, La Guardia, Santa Cruz, Bolivia</strong></p>
+      <p>Síguenos en nuestras redes sociales</p>
+      <div style="font-size: 1.5rem;">
+        <a href="https://www.instagram.com/hn_solution_/" target="_blank" style="color: #fff; margin: 0 10px;"><i class="fab fa-instagram"></i> Instagram</a> |
+        <a href="https://wa.me/59167728519" target="_blank" style="color: #fff; margin: 0 10px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <p>Hecho con ❤️ para ofrecer la mejor tecnología.</p>
     </div>
-  </div>
-
-  <div style="text-align: center; margin-top: 1rem;">
-    <p>Hecho con ❤️ para ofrecer la mejor tecnología.</p>
-  </div>
-</footer>
-
-<!-- Font Awesome CDN -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+  </footer>
 </html>
