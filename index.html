@@ -4,6 +4,8 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="samsung/catalog_samsung.html">
+  <link rel="stylesheet" href="style.css">
   <title>Venta de Teléfonos</title>
   <style>
     :root {
@@ -39,27 +41,33 @@
     }
 
     .slide-background {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 1s ease-in-out;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-    .slide-item {
-      width: 100%;
-      height: 100%;
-      flex-shrink: 0;
-    }
+.slide-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;  /* Começa invisível */
+  transition: opacity 1s ease-in-out; /* Suaviza a transição de opacidade */
+}
 
-    .slide-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+.slide-item.active {
+  opacity: 1;  /* Só a imagem com a classe "active" será visível */
+}
+
+.slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Para que as imagens cubram o espaço sem distorcer */
+  display: block;
+}
+
 
     .xiaomi-content {
       position: absolute;
@@ -203,18 +211,140 @@
         font-size: 1rem;
       }
     }
+    /* Container que envolve todos os botões */
+/* Container que envolve todos os botões */
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas para os botões */
+  gap: 20px; /* Espaçamento entre os botões */
+  padding: 20px;
+  justify-items: center; /* Centraliza os botões dentro de cada célula */
+}
+
+/* Estilo geral para cada botão */
+button {
+  background-color: #25D366;
+  color: white;
+  padding: 10px 18px; /* Menor padding para botões menores */
+  border: none;
+  border-radius: 25px; /* Bordas arredondadas para um visual mais moderno */
+  font-size: 14px; /* Tamanho de fonte menor */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Transição suave de cor e efeito de clique */
+  width: auto; /* Largura automática para ajustar ao conteúdo */
+  min-width: 150px; /* Largura mínima para os botões */
+  text-align: center;
+}
+
+button:hover {
+  background-color: #1e9c54; /* Cor de fundo quando o botão é clicado */
+  transform: scale(1.05); /* Aumenta um pouco o botão ao passar o mouse */
+}
+
+/* Estilo para botões com cores diferentes (por marca) */
+button.samsung {
+  background-color: #25D366;
+}
+
+button.tecno {
+  background-color: #0085FF;
+}
+
+button.xiaomi {
+  background-color: #FF5722;
+}
+
+button.realme {
+  background-color: #F7B500;
+}
+
+button.honor {
+  background-color: #1E2B7B;
+}
+
+button.infinix {
+  background-color: #14B72A;
+}
+
+button.oppo {
+  background-color: #00B2A9;
+}
+
+button.cat {
+  background-color: #F4A300;
+}
+
+button.zte {
+  background-color: #D2C6A1;
+}
+
+button.huawei {
+  background-color: #B02D2F;
+}
+
+button.sencillos {
+  background-color: #1F4690;
+}
+
+button.huavi {
+  background-color: #7B9E8F;
+}
+.buscador {
+      max-width: 500px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      background: white;
+      padding: 10px 15px;
+      border-radius: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .buscador input {
+      border: none;
+      flex: 1;
+      font-size: 16px;
+      outline: none;
+      padding-left: 10px;
+    }
+
+    .resultados {
+      display: grid;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .produto {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .produto:hover {
+      transform: scale(1.02);
+    }
+
+    .hidden {
+      display: none;
+    }
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+    }
   </style>
 </head>
 
 <body>
   <a href="#" id="btn-top" title="Volver arriba">⬆</a>
 
-  
 
   <section class="xiaomi-section">
     <div class="slide-background" id="slideBackground">
-      <div class="slide-item"><img src="img/1.png" alt="Slide 1" /></div>
-      <div class="slide-item"><img src="img/pexels-ketut-subiyanto-4909465.jpg" alt="Slide 2" /></div>
+      <div class="slide-item"><img src="img/pexels-ketut-subiyanto-4909465.jpg" alt="Slide 1" /></div>
+      <div class="slide-item"><img src="img/1.png" alt="Slide 2" /></div>
       <div class="slide-item"><img src="img/pexels-mike-jones-8804990.jpg" alt="Slide 3" /></div>
     </div>
 
@@ -230,102 +360,219 @@
     <img alt="Xiaomi Redmi 14C" src="img/xiaomi14c_promocional..png" style="width:100%;max-width:400px;border-radius:10px;"/>
     <p><strong>Xiaomi Redmi 14C</strong> - Celular de alto rendimiento, ideal para tu día a día. Garantía incluida y entrega en toda Bolivia.</p>
   </section>
-  <div style="text-align:center; padding: 1rem;">
-    <input type="text" id="filtro" placeholder="Buscar por nombre o características..." style="padding: 0.5rem; width: 80%; max-width: 400px;"/>
+  <div class="button-container">
+    <a href="samsung/catalog_samsung.html">
+      <button class="samsung">Ver Catálogo Samsung</button>
+    </a>
+    <a href="motorola/catalog_motorola.html">
+      <button class="cat">Ver Catálogo Motorola</button>
+    </a>
+    
+    
+    <a href="tecno/catalog_tecno.html">
+      <button class="tecno">Ver Catálogo Tecno</button>
+    </a>
+    
+    <a href="xiaomi/catalog_xiaomi.html">
+      <button class="xiaomi">Ver Catálogo Xiaomi</button>
+    </a>
+    
+    <a href="realme/catalog_realme.html">
+      <button class="realme">Ver Catálogo Realme</button>
+    </a>
+    
+    <a href="honor/catalog_honor.html">
+      <button class="honor">Ver Catálogo Honor Homologado</button>
+    </a>
+    
+    <a href="infinix/catalog_infinix.html">
+      <button class="infinix">Ver Catálogo Infinix</button>
+    </a>
+    
+    <a href="oppo/catalog_oppo.html">
+      <button class="oppo">Ver Catálogo OPPO</button>
+    </a>
+    
+    <a href="cat/catalog_cat.html">
+      <button class="cat">Ver Catálogo CAT</button>
+    </a>
+    
+    <a href="zte/catalog_zte.html">
+      <button class="zte">Ver Catálogo ZTE</button>
+    </a>
+    
+    <a href="huawei/catalog_huawei.html">
+      <button class="huawei">Ver Catálogo Huawei</button>
+    </a>
+    
+    <a href="sencillos/catalog_sencillos.html">
+      <button class="sencillos">Ver Catálogo Sencillos</button>
+    </a>
+    
+    <a href="huavi/catalog_huavi.html">
+      <button class="huavi">Ver Catálogo Huavi</button>
+    </a>
   </div>
+  <div class="buscador">
+    <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar" width="20">
+    <input type="text" id="filtro" placeholder="Buscar modelo de celular...">
+    
+  </div>
+
+
+  
   <div class="container" id="productos-container">
+  
     <!-- Aquí se cargarán los productos con JavaScript -->
   </div>
+  
+  <div class="container" id="productos-motorola-container">
+  
+    <!-- Produtos Motorola vão ser carregados aqui -->
+  </div>
+
+  
 
   <section>
     <h2>¿Quiénes somos?</h2>
     <p>Somos un emprendimiento boliviano que ofrece celulares nuevos, con garantía y atención personalizada. Nuestro objetivo es brindarte la mejor tecnología a precios accesibles, con entrega rápida y segura en Santa Cruz y todo el país.</p>
   </section>
 
+<script>
+  const btnTop = document.getElementById('btn-top');
+  window.addEventListener('scroll', () => {
+    btnTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
   
-
-  <script>
-    const btnTop = document.getElementById('btn-top');
-    window.addEventListener('scroll', () => {
-      btnTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-
-    const productos = [
-      {
-        nombre: "Samsung A6",
-        ram: "6 GB de RAM",
-        almacenamiento: "128 GB de almacenamiento",
-        precio: "Bs 2000",
-        imagen: "img/samsung A6.jpg",
-        link: "Samsung%20A6"
-      },
-      {
-        nombre: "Samsung A16",
-        ram: "6 GB de RAM",
-        almacenamiento: "128 GB de almacenamiento",
-        precio: "Bs 2750",
-        imagen: "img/Samsung A16.png",
-        link: "Samsung%20A16"
-      },
-      {
-        nombre: "Xiaomi Note 11",
-        ram: "4 GB de RAM",
-        almacenamiento: "64 GB de almacenamiento",
-        precio: "Bs 1850",
-        imagen: "img/xiaomi_note11.jpg",
-        link: "Xiaomi%20Note%2011"
-      },
-      {
-        nombre: "Motorola G31",
-        ram: "6 GB de RAM",
-        almacenamiento: "128 GB de almacenamiento",
-        precio: "Bs 2100",
-        imagen: "img/motorola_g31.jpg",
-        link: "Motorola%20G31"
-      }
-    ];
-
-    const container = document.getElementById('productos-container');
-    productos.forEach(producto => {
+  const productos = [
+  { nombre: "Samsung A05", ram: "4GB de RAM", almacenamiento: "64GB", precio: "$118", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a05-1.jpg" },
+      { nombre: "Samsung A14 4G", ram: "4GB de RAM", almacenamiento: "128GB", precio: "$135", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a14-4g-1.jpg" },
+      { nombre: "Samsung A14 5G", ram: "4GB de RAM", almacenamiento: "128GB", precio: "$150", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a14-5g-1.jpg" },
+      { nombre: "Samsung A15 5G", ram: "4GB de RAM", almacenamiento: "128GB", precio: "$175", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a15-5g-1.jpg" },
+      { nombre: "Samsung A16", ram: "4GB de RAM", almacenamiento: "128GB", precio: "$187", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a16-1.jpg" },
+      { nombre: "Samsung A25 5G", ram: "6GB de RAM", almacenamiento: "128GB", precio: "$187", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a25-5g-1.jpg" },
+      { nombre: "Samsung A26 5G", ram: "6GB de RAM", almacenamiento: "128GB", precio: "$220", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a26-1.jpg" },
+      { nombre: "Samsung A26 5G", ram: "8GB de RAM", almacenamiento: "256GB", precio: "$240", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a26-1.jpg" },
+      { nombre: "Samsung A35 5G", ram: "8GB de RAM", almacenamiento: "256GB", precio: "$310", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a35-1.jpg" },
+      { nombre: "Samsung A36 5G", ram: "8GB de RAM", almacenamiento: "256GB", precio: "$292", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a36-1.jpg" },
+      { nombre: "Samsung A54 5G", ram: "8GB de RAM", almacenamiento: "256GB", precio: "$315", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a54-5g-1.jpg" },
+      { nombre: "Samsung A55 5G", ram: "8GB de RAM", almacenamiento: "256GB", precio: "$375", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a55-1.jpg" },
+      { nombre: "Samsung A56 5G", ram: "8GB de RAM", almacenamiento: "256GB", precio: "$350", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a56-1.jpg" },
+      { nombre: "Samsung Tab A9", ram: "4GB de RAM", almacenamiento: "64GB", precio: "$162", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-a9-1.jpg" },
+      { nombre: "Samsung Tab A9+ 5G", ram: "4GB de RAM", almacenamiento: "64GB", precio: "$218", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-a9-plus-1.jpg" },
+      { nombre: "Samsung Tab S6 Lite", ram: "4GB de RAM", almacenamiento: "64GB", precio: "$325", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-s6-lite-1.jpg" },
+      { nombre: "Samsung Tab S6 Lite + Funda", ram: "4GB de RAM", almacenamiento: "64GB", precio: "$340", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-s6-lite-1.jpg" },
+      { nombre: "Samsung Tab S9 5G", ram: "12GB de RAM", almacenamiento: "256GB", precio: "$950", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-s9-1.jpg" },
+      { nombre: "Samsung Tab S8 Ultra", ram: "12GB de RAM", almacenamiento: "256GB", precio: "$1200", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-s8-ultra-1.jpg" },
+      { nombre: "Samsung Tab S10+", ram: "12GB de RAM", almacenamiento: "256GB", precio: "$950", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-s10-plus-1.jpg" },
+      { nombre: "Samsung Watch 6", ram: "1GB de RAM", almacenamiento: "16GB", precio: "$375", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-watch-6-1.jpg" }
+      
+       ];
+   
+  // Lista de produtos Motorola
+  const productosMotorola = [
+    { nombre: "MOTOROLA EDGE 50 PRO 12/512", precio: "$410", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-pro-1.jpg" },
+    { nombre: "MOTOROLA EDGE 50 ULTRA 12/512", precio: "$730", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-ultra-1.jpg" },
+    { nombre: "MOTOROLA RAZR 50 ULTRA 12/512", precio: "$930", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-50-ultra-1.jpg" },
+    { nombre: "MOTOROLA RAZR 40 ULTRA 12/512", precio: "$670", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-40-ultra-1.jpg" },
+    { nombre: "MOTOROLA RAZR ULTRA PREMIUN COVER EDITION 12/512", precio: "$930", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-ultra-premium-cover-1.jpg" },
+    { nombre: "MOTO C 1/16", precio: "$500", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-c-1-1.jpg" },
+    { nombre: "MOTO E 14 2/64", precio: "$65", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-e-14-1.jpg" },
+    { nombre: "MOTO G 24 4/128", precio: "$89", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-24-1.jpg" },
+    { nombre: "MOTO G 04S 4/256", precio: "$98", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-04s-1.jpg" },
+    { nombre: "MOTO G 35 5G 4/256", precio: "$155", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-35-5g-1.jpg" },
+    { nombre: "MOTO G 75 5G 8/256", precio: "$210", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-75-5g-1.jpg" },
+    { nombre: "MOTO G85 5G 8/256", precio: "$220", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g85-5g-1.jpg" },
+    { nombre: "EDGE 50 FUSIÓN 8/256", precio: "$245", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-fusion-1.jpg" }
+  ];
+  // Função para exibir os produtos
+  function displayProducts(productList, containerId) {
+    const container = document.getElementById(containerId);
+    productList.forEach(product => {
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
-        <img alt="${producto.nombre}" src="${producto.imagen}"/>
-        <h2>${producto.nombre}</h2>
-        <h3>${producto.ram}</h3>
-        <h3>${producto.almacenamiento}</h3>
-        <p>Precio: ${producto.precio}</p>
-        <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${producto.link}" target="_blank">
+        <img alt="${product.nombre}" src="${product.imagen}"/>
+        <h2>${product.nombre}</h2>
+        <p>Preço: ${product.precio}</p>
+        <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${product.nombre}" target="_blank">
           Contactar por WhatsApp
         </a>
       `;
       container.appendChild(card);
     });
-
-    const inputFiltro = document.getElementById('filtro');
-    inputFiltro.addEventListener('input', () => {
-      const texto = inputFiltro.value.toLowerCase();
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        const contenido = card.textContent.toLowerCase();
-        card.style.display = contenido.includes(texto) ? 'block' : 'none';
-      });
+  }
+  
+  // Exibe os produtos Motorola
+  displayProducts(productosMotorola, 'productos-motorola-container');
+  const container = document.getElementById('productos-container');
+  productos.forEach(producto => {
+    
+    
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img alt="${producto.nombre}" src="${producto.imagen}"/>
+      <h2>${producto.nombre}</h2>
+      <h3>${producto.ram}</h3>
+      <h3>${producto.almacenamiento}</h3>
+      <p>Precio: ${producto.precio}</p>
+      <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${producto.link}" target="_blank">
+        Contactar por WhatsApp
+      </a>
+    `;
+    container.appendChild(card);
+  });
+  
+  const inputFiltro = document.getElementById('filtro');
+  inputFiltro.addEventListener('input', () => {
+    const texto = inputFiltro.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const contenido = card.textContent.toLowerCase();
+      card.style.display = contenido.includes(texto) ? 'block' : 'none';
     });
+  });
+  
+  // Script do carrossel (slide automático)
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('.slide-item');
+  const totalSlides = slides.length;
+  
+  function changeSlide() {
+  // Remove a classe 'active' de todos os slides
+  slides.forEach(slide => slide.classList.remove('active'));
+  
+  // Adiciona a classe 'active' ao slide atual
+  slides[currentIndex].classList.add('active');
+  
+  // Avança para o próximo slide
+  currentIndex = (currentIndex + 1) % totalSlides;
+  }
+  
+  // Inicializa o primeiro slide
+  changeSlide();
+  
+  // Troca de slide a cada 6 segundos
+  setInterval(changeSlide, 6000); /* Alterei o tempo para 6 segundos entre os slides */
   </script>
+
 </body>
+
 <footer>
-    <div style="text-align: center;">
-      <p>&copy; 2023 Venta de Teléfonos. Todos los derechos reservados.</p>
-      <p>Desarrollado por Helder Novaes</p>
-      <p>Teléfono: <strong>+591 67728519</strong></p>
-      <p>Email: <strong><a href="mailto:helderpes@gmail.com">helderpes@gmail.com</a></strong></p>
-      <p>Ubicación: <strong>Basilio km 48, La Guardia, Santa Cruz, Bolivia</strong></p>
-      <p>Síguenos en nuestras redes sociales</p>
-      <div style="font-size: 1.5rem;">
-        <a href="https://www.instagram.com/hn_solution_/" target="_blank" style="color: #fff; margin: 0 10px;"><i class="fab fa-instagram"></i> Instagram</a> |
-        <a href="https://wa.me/59167728519" target="_blank" style="color: #fff; margin: 0 10px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      </div>
-      <p>Hecho con ❤️ para ofrecer la mejor tecnología.</p>
+  <div style="text-align: center;">
+    <p>&copy; 2023 Venta de Teléfonos. Todos los derechos reservados.</p>
+    <p>Desarrollado por Helder Novaes</p>
+    <p>Teléfono: <strong>+591 67728519</strong></p>
+    <p>Email: <strong><a href="mailto:helderpes@gmail.com">helderpes@gmail.com</a></strong></p>
+    <p>Ubicación: <strong>Basilio km 48, La Guardia, Santa Cruz, Bolivia</strong></p>
+    <p>Síguenos en nuestras redes sociales</p>
+    <div style="font-size: 1.5rem;">
+      <a href="https://www.instagram.com/hn_solution_/" target="_blank" style="color: #fff; margin: 0 10px;"><i class="fab fa-instagram"></i> Instagram</a> |
+      <a href="https://wa.me/59167728519" target="_blank" style="color: #fff; margin: 0 10px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
-  </footer>
+    <p>Hecho con ❤️ para ofrecer la mejor tecnología.</p>
+  </div>
+</footer>
 </html>
+<!-- Fin del HTML -->

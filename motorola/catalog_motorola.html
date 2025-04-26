@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <title>Productos Motorola</title>
+  <style>
+    :root {
+      --verde-whatsapp: #25D366;
+      --verde-hover: #128C7E;
+      --gris-oscuro: #1e1e2f;
+      --fondo: #f9f9f9;
+      --texto: #333;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--fondo);
+      color: var(--texto);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: var(--gris-oscuro);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    h2 {
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .card h2, .card h3 {
+      margin: 0.5rem 0;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: var(--verde-whatsapp);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .card a:hover {
+      background: var(--verde-hover);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Productos Motorola</h1>
+  </header>
+
+  <!-- Seção Motorola -->
+  <h2>Productos Motorola</h2>
+  <div class="container" id="productos-motorola-container">
+    <!-- Produtos Motorola vão ser carregados aqui -->
+  </div>
+
+  <script>
+    // Lista de produtos Motorola
+    const productosMotorola = [
+      { nombre: "MOTOROLA EDGE 50 PRO 12/512", precio: "$410", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-pro-1.jpg" },
+      { nombre: "MOTOROLA EDGE 50 ULTRA 12/512", precio: "$730", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-ultra-1.jpg" },
+      { nombre: "MOTOROLA RAZR 50 ULTRA 12/512", precio: "$930", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-50-ultra-1.jpg" },
+      { nombre: "MOTOROLA RAZR 40 ULTRA 12/512", precio: "$670", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-40-ultra-1.jpg" },
+      { nombre: "MOTOROLA RAZR ULTRA PREMIUN COVER EDITION 12/512", precio: "$930", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-ultra-premium-cover-1.jpg" },
+      { nombre: "MOTO C 1/16", precio: "$500", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-c-1-1.jpg" },
+      { nombre: "MOTO E 14 2/64", precio: "$65", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-e-14-1.jpg" },
+      { nombre: "MOTO G 24 4/128", precio: "$89", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-24-1.jpg" },
+      { nombre: "MOTO G 04S 4/256", precio: "$98", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-04s-1.jpg" },
+      { nombre: "MOTO G 35 5G 4/256", precio: "$155", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-35-5g-1.jpg" },
+      { nombre: "MOTO G 75 5G 8/256", precio: "$210", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-75-5g-1.jpg" },
+      { nombre: "MOTO G85 5G 8/256", precio: "$220", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g85-5g-1.jpg" },
+      { nombre: "EDGE 50 FUSIÓN 8/256", precio: "$245", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-fusion-1.jpg" }
+    ];
+
+    // Função para exibir os produtos
+    function displayProducts(productList, containerId) {
+      const container = document.getElementById(containerId);
+      productList.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img alt="${product.nombre}" src="${product.imagen}"/>
+          <h2>${product.nombre}</h2>
+          <p>Preço: ${product.precio}</p>
+          <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${product.nombre}" target="_blank">
+            Contactar por WhatsApp
+          </a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Exibe os produtos Motorola
+    displayProducts(productosMotorola, 'productos-motorola-container');
+  </script>
+</body>
+</html>

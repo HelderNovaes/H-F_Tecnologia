@@ -1,0 +1,362 @@
+:root {
+    --verde-whatsapp: #25D366;
+    --verde-hover: #128C7E;
+    --gris-oscuro: #1e1e2f;
+    --fondo: #f9f9f9;
+    --texto: #333;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background: var(--gris-oscuro);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .xiaomi-section {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    color: white;
+  }
+
+  .slide-background {
+display: flex;
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.slide-item {
+width: 100%;
+height: 100%;
+position: absolute;
+opacity: 0;  /* Começa invisível */
+transition: opacity 1s ease-in-out; /* Suaviza a transição de opacidade */
+}
+
+.slide-item.active {
+opacity: 1;  /* Só a imagem com a classe "active" será visível */
+}
+
+.slide-item img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Para que as imagens cubram o espaço sem distorcer */
+display: block;
+}
+
+
+  .xiaomi-content {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 10px;
+    animation: fadeIn 2s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+
+  .xiaomi-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .xiaomi-content p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .xiaomi-content a {
+    display: inline-block;
+    background: var(--verde-whatsapp);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+  }
+
+  .xiaomi-content a:hover {
+    background: var(--verde-hover);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .card h2, .card h3 {
+    margin: 0.5rem 0;
+  }
+
+  .card p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+
+  .card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: var(--verde-whatsapp);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .card a:hover {
+    background: var(--verde-hover);
+  }
+
+  section {
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 900px;
+    background: white;
+    text-align: center;
+  }
+
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem 0;
+  }
+
+  footer a {
+    color: var(--verde-whatsapp);
+  }
+
+  #btn-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--verde-whatsapp);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-align: center;
+    display: none;
+    z-index: 100;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  #btn-top:hover {
+    background: var(--verde-hover);
+  }
+
+  @media (max-width: 768px) {
+    .xiaomi-content h1 {
+      font-size: 2rem;
+    }
+    .xiaomi-content p {
+      font-size: 1rem;
+    }
+  }
+  /* Container que envolve todos os botões */
+/* Container que envolve todos os botões */
+.button-container {
+display: grid;
+grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas para os botões */
+gap: 20px; /* Espaçamento entre os botões */
+padding: 20px;
+justify-items: center; /* Centraliza os botões dentro de cada célula */
+}
+
+/* Estilo geral para cada botão */
+button {
+background-color: #25D366;
+color: white;
+padding: 10px 18px; /* Menor padding para botões menores */
+border: none;
+border-radius: 25px; /* Bordas arredondadas para um visual mais moderno */
+font-size: 14px; /* Tamanho de fonte menor */
+cursor: pointer;
+transition: background-color 0.3s, transform 0.2s; /* Transição suave de cor e efeito de clique */
+width: auto; /* Largura automática para ajustar ao conteúdo */
+min-width: 150px; /* Largura mínima para os botões */
+text-align: center;
+}
+
+button:hover {
+background-color: #1e9c54; /* Cor de fundo quando o botão é clicado */
+transform: scale(1.05); /* Aumenta um pouco o botão ao passar o mouse */
+}
+
+/* Estilo para botões com cores diferentes (por marca) */
+button.samsung {
+background-color: #25D366;
+}
+
+button.tecno {
+background-color: #0085FF;
+}
+
+button.xiaomi {
+background-color: #FF5722;
+}
+
+button.realme {
+background-color: #F7B500;
+}
+
+button.honor {
+background-color: #1E2B7B;
+}
+
+button.infinix {
+background-color: #14B72A;
+}
+
+button.oppo {
+background-color: #00B2A9;
+}
+
+button.cat {
+background-color: #F4A300;
+}
+
+button.zte {
+background-color: #D2C6A1;
+}
+
+button.huawei {
+background-color: #B02D2F;
+}
+
+button.sencillos {
+background-color: #1F4690;
+}
+
+button.huavi {
+background-color: #7B9E8F;
+}
+.buscador {
+    max-width: 500px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .buscador input {
+    border: none;
+    flex: 1;
+    font-size: 16px;
+    outline: none;
+    padding-left: 10px;
+  }
+
+  .resultados {
+    display: grid;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .produto {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .produto:hover {
+    transform: scale(1.02);
+  }
+
+  .hidden {
+    display: none;
+  }
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .container {
+    
+    margin-top: 10px;
+    padding: 5px;
+    
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f9f9f9;
+    display: none; /* começa oculto */
+  }
+
+  .botao-toggle {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+  
+    padding: 10px 20px;
+    background-color: #0044cc;
+    color: white;
+    
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .botao-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+
+  .botao-toggle:hover {
+    background-color: #0033aa;}
