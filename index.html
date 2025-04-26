@@ -445,7 +445,7 @@ button.huavi {
   window.addEventListener('scroll', () => {
     btnTop.style.display = window.scrollY > 300 ? 'block' : 'none';
   });
-
+  const taxaConversao = 16.5;
   const productos = [
   
   { nombre: "Samsung A05", ram: "4GB de RAM", almacenamiento: "64GB", precio: "$118", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a05-1.jpg" },
@@ -621,26 +621,34 @@ button.huavi {
   ];
 
  
-   
-   // Função para exibir os produtos
-   function displayProducts(productList, containerId) {
-    const container = document.getElementById(containerId);
-    productList.forEach(product => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img alt="${product.nombre}" src="${product.imagen}"/>
-        <h2>${product.nombre}</h2>
-        <p>Preço: ${product.precio}</p>
-        <a href="https://wa.me/59167728519?text=Quiero%20este%20${encodeURIComponent(product.nombre)}">Comprar por WhatsApp</a>
-      `;
-      container.appendChild(card);
-    });
-  }
+    // Função para exibir os produtos
+    function displayProducts(productList, containerId) {
+  const container = document.getElementById(containerId);
+  productList.forEach(product => {
+    // Extraímos o preço em USD, removendo o símbolo "$"
+    const precoUSD = parseFloat(product.precio.replace('$', '').trim());
+    
+    // Calcula o preço em bolivianos
+    const precoBS = precoUSD * taxaConversao;
 
-  // Carregar os produtos
-  displayProducts(productos, 'productos-container');
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img alt="${product.nombre}" src="${product.imagen}"/>
+      <h2>${product.nombre}</h2>
+      <p><strong>Preço:</strong> ${precoBS.toFixed(2)} BS</p> <!-- Exibe o preço em bolivianos -->
+      <a href="https://wa.me/59167728519?text=Quiero%20este%20${encodeURIComponent(product.nombre)}">Comprar por WhatsApp</a>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Carregar os produtos
+displayProducts(productos, 'productos-container');
+
   
+
+
   const inputFiltro = document.getElementById('filtro');
   inputFiltro.addEventListener('input', () => {
     const texto = inputFiltro.value.toLowerCase();
