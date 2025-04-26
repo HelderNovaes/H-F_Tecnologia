@@ -104,6 +104,8 @@
 
   <script>
     // Lista de produtos Tecno Home
+    const taxaConversao = 16.5;
+
     const productosTecno = [
       { nombre: "Tecno Spark 20", ram: "8GB de RAM", almacenamiento: "256GB", precio: "$135", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-spark-20-1.jpg" },
       { nombre: "Tecno Spark 20 Pro", ram: "8GB de RAM", almacenamiento: "256GB", precio: "$165", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-spark-20-pro-1.jpg" },
@@ -122,23 +124,25 @@
     ];
 
     function displayProducts(productList, containerId) {
-      const container = document.getElementById(containerId);
-      productList.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <img alt="${product.nombre}" src="${product.imagen}"/>
-          <h2>${product.nombre}</h2>
-          ${product.ram ? `<p>${product.ram} | ${product.almacenamiento}</p>` : ""}
-          <p>Precio: ${product.precio}</p>
-          <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${product.nombre}" target="_blank">
-            Contactar por WhatsApp
-          </a>
-        `;
-        container.appendChild(card);
-      });
-    }
+  const container = document.getElementById(containerId);
+  productList.forEach(product => {
+    // Extraímos o preço em USD, removendo o símbolo "$"
+    const precoUSD = parseFloat(product.precio.replace('$', '').trim());
+    
+    // Calcula o preço em bolivianos
+    const precoBS = precoUSD * taxaConversao;
 
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img alt="${product.nombre}" src="${product.imagen}"/>
+      <h2>${product.nombre}</h2>
+      <p><strong>Preço:</strong> ${precoBS.toFixed(2)} BS</p> <!-- Exibe o preço em bolivianos -->
+      <a href="https://wa.me/59167728519?text=Quiero%20este%20${encodeURIComponent(product.nombre)}">Comprar por WhatsApp</a>
+    `;
+    container.appendChild(card);
+  });
+}
     displayProducts(productosTecno, 'productos-container');
     displayProducts(productosPremium, 'productos-premium-container');
   </script>

@@ -104,6 +104,8 @@
 
   <script>
     // Lista de productos ZTE
+    const taxaConversao = 16.5;
+
     const productosZTE = [
       { nombre: "ZTE L130", specs: "Smartphone Básico", precio: "$27", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-l130-1.jpg" },
       { nombre: "ZTE A35Core", specs: "2+2/32", precio: "$38", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-a35core-1.jpg" },
@@ -125,22 +127,26 @@
 
     // Função para exibir os produtos
     function displayProducts(productList, containerId) {
-      const container = document.getElementById(containerId);
-      productList.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <img alt="${product.nombre}" src="${product.imagen}" />
-          <h2>${product.nombre}</h2>
-          <h3>${product.specs}</h3>
-          <p>Precio: ${product.precio}</p>
-          <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${product.nombre}%20${product.specs}" target="_blank">
-            Contactar por WhatsApp
-          </a>
-        `;
-        container.appendChild(card);
-      });
-    }
+  const container = document.getElementById(containerId);
+  productList.forEach(product => {
+    // Extraímos o preço em USD, removendo o símbolo "$"
+    const precoUSD = parseFloat(product.precio.replace('$', '').trim());
+    
+    // Calcula o preço em bolivianos
+    const precoBS = precoUSD * taxaConversao;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img alt="${product.nombre}" src="${product.imagen}"/>
+      <h2>${product.nombre}</h2>
+      <p><strong>Preço:</strong> ${precoBS.toFixed(2)} BS</p> <!-- Exibe o preço em bolivianos -->
+      <a href="https://wa.me/59167728519?text=Quiero%20este%20${encodeURIComponent(product.nombre)}">Comprar por WhatsApp</a>
+    `;
+    container.appendChild(card);
+  });
+}
+
 
     // Exibe os produtos ZTE
     displayProducts(productosZTE, 'productos-container');

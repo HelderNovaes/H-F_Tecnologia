@@ -104,6 +104,8 @@
 
   <script>
     // Lista de produtos Motorola
+    const taxaConversao = 16.5;
+
     const productosMotorola = [
       { nombre: "MOTOROLA EDGE 50 PRO 12/512", precio: "$410", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-pro-1.jpg" },
       { nombre: "MOTOROLA EDGE 50 ULTRA 12/512", precio: "$730", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-ultra-1.jpg" },
@@ -122,21 +124,25 @@
 
     // Função para exibir os produtos
     function displayProducts(productList, containerId) {
-      const container = document.getElementById(containerId);
-      productList.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <img alt="${product.nombre}" src="${product.imagen}"/>
-          <h2>${product.nombre}</h2>
-          <p>Preço: ${product.precio}</p>
-          <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${product.nombre}" target="_blank">
-            Contactar por WhatsApp
-          </a>
-        `;
-        container.appendChild(card);
-      });
-    }
+  const container = document.getElementById(containerId);
+  productList.forEach(product => {
+    // Extraímos o preço em USD, removendo o símbolo "$"
+    const precoUSD = parseFloat(product.precio.replace('$', '').trim());
+    
+    // Calcula o preço em bolivianos
+    const precoBS = precoUSD * taxaConversao;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img alt="${product.nombre}" src="${product.imagen}"/>
+      <h2>${product.nombre}</h2>
+      <p><strong>Preço:</strong> ${precoBS.toFixed(2)} BS</p> <!-- Exibe o preço em bolivianos -->
+      <a href="https://wa.me/59167728519?text=Quiero%20este%20${encodeURIComponent(product.nombre)}">Comprar por WhatsApp</a>
+    `;
+    container.appendChild(card);
+  });
+}
 
     // Exibe os produtos Motorola
     displayProducts(productosMotorola, 'productos-motorola-container');
