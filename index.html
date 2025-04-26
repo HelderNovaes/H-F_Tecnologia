@@ -413,17 +413,21 @@ button.huavi {
       <button class="huavi">Ver Catálogo Huavi</button>
     </a>
   </div>
-  <div class="buscador">
-    <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar" width="20">
-    <input type="text" id="filtro" placeholder="Buscar modelo de celular...">
-    
+  <div class="boton-centro">
+    <button onclick="toggleContenido()">Mostrar celulares</button>
   </div>
-
-
   
-  <div class="container" id="productos-container">
-    <!-- Aquí se cargarán los productos con JavaScript -->
+  <div id="contenido" style="display: none;">
+    <div class="buscador">
+      <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar" width="20">
+      <input type="text" id="filtro" placeholder="Buscar modelo de celular...">
+    </div>
+  
+    <div class="container" id="productos-container">
+      <!-- Aqui se cargarán los productos con JavaScript -->
+    </div>
   </div>
+  
   
 
   
@@ -663,8 +667,20 @@ button.huavi {
   // Inicializa o primeiro slide
   changeSlide();
   
-  // Troca de slide a cada 6 segundos
-  setInterval(changeSlide, 6000); /* Alterei o tempo para 6 segundos entre os slides */
+  // Troca de slide a cada 4 segundos
+  setInterval(changeSlide, 4000); /* Alterei o tempo para 6 segundos entre os slides */
+  function toggleContenido() {
+  const contenido = document.getElementById('contenido');
+  const boton = document.querySelector('.boton-centro button');
+  
+  if (contenido.style.display === 'none') {
+    contenido.style.display = 'block';
+    boton.textContent = 'Ocultar celulares';
+  } else {
+    contenido.style.display = 'none';
+    boton.textContent = 'Mostrar celulares';
+  }
+}
   </script>
 
 </body>

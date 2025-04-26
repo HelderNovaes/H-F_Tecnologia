@@ -356,7 +356,24 @@ background-color: #7B9E8F;
     justify-content: center;
     margin-top: 20px;
   }
-  
+  .boton-centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
 
-  .botao-toggle:hover {
-    background-color: #0033aa;}
+  .boton-centro button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .boton-centro button:hover {
+    background-color: #45a049;
+  }
