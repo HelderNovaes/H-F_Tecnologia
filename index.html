@@ -422,14 +422,9 @@ button.huavi {
 
   
   <div class="container" id="productos-container">
-  
     <!-- Aquí se cargarán los productos con JavaScript -->
   </div>
   
-  <div class="container" id="productos-motorola-container">
-  
-    <!-- Produtos Motorola vão ser carregados aqui -->
-  </div>
 
   
 
@@ -439,12 +434,13 @@ button.huavi {
   </section>
 
 <script>
-  const btnTop = document.getElementById('btn-top');
+ const btnTop = document.getElementById('btn-top');
   window.addEventListener('scroll', () => {
     btnTop.style.display = window.scrollY > 300 ? 'block' : 'none';
   });
-  
+
   const productos = [
+  
   { nombre: "Samsung A05", ram: "4GB de RAM", almacenamiento: "64GB", precio: "$118", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a05-1.jpg" },
       { nombre: "Samsung A14 4G", ram: "4GB de RAM", almacenamiento: "128GB", precio: "$135", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a14-4g-1.jpg" },
       { nombre: "Samsung A14 5G", ram: "4GB de RAM", almacenamiento: "128GB", precio: "$150", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a14-5g-1.jpg" },
@@ -465,28 +461,162 @@ button.huavi {
       { nombre: "Samsung Tab S9 5G", ram: "12GB de RAM", almacenamiento: "256GB", precio: "$950", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-s9-1.jpg" },
       { nombre: "Samsung Tab S8 Ultra", ram: "12GB de RAM", almacenamiento: "256GB", precio: "$1200", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-s8-ultra-1.jpg" },
       { nombre: "Samsung Tab S10+", ram: "12GB de RAM", almacenamiento: "256GB", precio: "$950", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-tab-s10-plus-1.jpg" },
-      { nombre: "Samsung Watch 6", ram: "1GB de RAM", almacenamiento: "16GB", precio: "$375", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-watch-6-1.jpg" }
+      { nombre: "Samsung Watch 6", ram: "1GB de RAM", almacenamiento: "16GB", precio: "$375", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-watch-6-1.jpg" },
+
+      { nombre: "Samsung S24 FE 8/256", precio: "$610", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-fe-1.jpg" },
+      { nombre: "Samsung S25 12/256", precio: "$775", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s25-1.jpg" },
+      { nombre: "Samsung S25+ 12/256", precio: "$935", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s25-plus-1.jpg" },
+      { nombre: "Samsung S25 ULTRA 12/256", precio: "$1175", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s25-ultra-1.jpg" },
+      { nombre: "Samsung S25 ULTRA 12/512", precio: "$1275", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s25-ultra-512gb-1.jpg" },
+      { nombre: "Samsung S24+ 12/256", precio: "$840", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-plus-1.jpg" },
+      { nombre: "Samsung S23 ULTRA 12/256", precio: "$980", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-ultra-1.jpg" },
+      { nombre: "Samsung S23 ULTRA DE 12/T.B", precio: "$1350", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-ultra-de-1.jpg" },
+      { nombre: "Samsung S22 ULTRA 12/256 + Galaxy Fit 3", precio: "$900", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s22-ultra-1.jpg" },
+      { nombre: "Samsung S23 + 8/256 + Galaxy Fit 3", precio: "$770", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-1.jpg" },
+      { nombre: "Samsung Z FOLD 3 5G 12/256 + WATCH 4", precio: "$980", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-z-fold-3-5g-1.jpg" },
+      { nombre: "Samsung Z FOLD 5 5G 12/256 + Buds FE", precio: "$1390", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-z-fold-5-5g-1.jpg" },
+      { nombre: "Samsung Z FOLD 5 5G 12/512 + Buds FE", precio: "$1450", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-z-fold-5-5g-512gb-1.jpg" },
+      { nombre: "Samsung Z FLIP 3 5G 8/256 + WATCH 4", precio: "$500", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-z-flip-3-5g-1.jpg" },
+      { nombre: "Samsung Z FLIP 5 5G 8/256", precio: "$920", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-z-flip-5-5g-1.jpg" },
+      { nombre: "Samsung Z FLIP 5 5G 8/512", precio: "$975", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-z-flip-5-5g-512gb-1.jpg" },
+
+      { nombre: "MOTOROLA EDGE 50 PRO 12/512", precio: "$410", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-pro-1.jpg" },
+  { nombre: "MOTOROLA EDGE 50 ULTRA 12/512", precio: "$730", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-ultra-1.jpg" },
+  { nombre: "MOTOROLA RAZR 50 ULTRA 12/512", precio: "$930", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-50-ultra-1.jpg" },
+  { nombre: "MOTOROLA RAZR 40 ULTRA 12/512", precio: "$670", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-40-ultra-1.jpg" },
+  { nombre: "MOTOROLA RAZR ULTRA PREMIUM COVER EDITION 12/512", precio: "$930", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-ultra-premium-cover-1.jpg" },
+  { nombre: "MOTO C 1/16", precio: "$500", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-c-1-1.jpg" },
+  { nombre: "MOTO E 14 2/64", precio: "$65", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-e-14-1.jpg" },
+  { nombre: "MOTO G 24 4/128", precio: "$89", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-24-1.jpg" },
+  { nombre: "MOTO G 04S 4/256", precio: "$98", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-04s-1.jpg" },
+  { nombre: "MOTO G 35 5G 4/256", precio: "$155", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-35-5g-1.jpg" },
+  { nombre: "MOTO G 75 5G 8/256", precio: "$210", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-75-5g-1.jpg" },
+  { nombre: "MOTO G85 5G 8/256", precio: "$220", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g85-5g-1.jpg" },
+  { nombre: "EDGE 50 FUSIÓN 8/256", precio: "$245", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-fusion-1.jpg" },
+  { nombre: "Huawei Y 9a 6/128", precio: "$180", imagen: "https://fdn2.gsmarena.com/vv/pics/huawei/huawei-y9a-1.jpg" },
+  { nombre: "Huawei Nova Y 60 4/64", precio: "$100", imagen: "https://fdn2.gsmarena.com/vv/pics/huawei/huawei-nova-y60-1.jpg" },
+  { nombre: "Huawei Nova 8i 6/128", precio: "$190", imagen: "https://fdn2.gsmarena.com/vv/pics/huawei/huawei-nova-8i-1.jpg" },
+  { nombre: "Huawei Nova 9 SE 6/128", precio: "$220", imagen: "https://fdn2.gsmarena.com/vv/pics/huawei/huawei-nova-9-se-1.jpg" },
+  { nombre: "Huawei Nova 9 8/128", precio: "$360", imagen: "https://fdn2.gsmarena.com/vv/pics/huawei/huawei-nova-9-1.jpg" },
+  { nombre: "Huawei P 50 PRO 8/256", precio: "$600", imagen: "https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p50-pro-1.jpg" },
+  { nombre: "Huawei Matepad T 8 2/16", precio: "$130", imagen: "https://fdn2.gsmarena.com/vv/pics/huawei/huawei-matepad-t-8-1.jpg" },
+  { nombre: "Tecno Spark 20 8/256", precio: "$135", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-spark-20-1.jpg" },
+  { nombre: "Tecno Spark 20 Pro 8/256", precio: "$165", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-spark-20-pro-1.jpg" },
+  { nombre: "Tecno Spark 20 Pro+ 8/256", precio: "$190", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-spark-20-pro-plus-1.jpg" },
+  { nombre: "Tecno Camon 20 8/256", precio: "$200", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-camon-20-1.jpg" },
+  { nombre: "Tecno Camon 20 Pro 8/256", precio: "$230", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-camon-20-pro-1.jpg" },
+  { nombre: "Tecno Camon 20 Premier", precio: "$320", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-camon-20-premier-1.jpg" },
+  { nombre: "Tecno Phantom X2", precio: "$500", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-phantom-x2-1.jpg" },
+  { nombre: "Tecno Phantom X2 Pro", precio: "$650", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-phantom-x2-pro-1.jpg" },
+  { nombre: "Tecno Phantom V Fold", precio: "$1050", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-phantom-v-fold-1.jpg" },
+  { nombre: "Tecno Phantom V Flip", precio: "$750", imagen: "https://fdn2.gsmarena.com/vv/pics/tecno/tecno-phantom-v-flip-1.jpg" },
+  { nombre: "Xiaomi 14", precio: "$750", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-1.jpg" },
+      { nombre: "Xiaomi 14 Ultra", precio: "$1300", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-1.jpg" },
+      { nombre: "Xiaomi 13 Ultra", precio: "$1100", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13-ultra-1.jpg" },
+      { nombre: "Xiaomi 13 Pro", precio: "$950", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13-pro-1.jpg" },
+      { nombre: "Xiaomi Mix Fold 3", precio: "$1700", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mix-fold-3-1.jpg" },
+      { nombre: "Xiaomi 12T Pro", precio: "$680", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-12t-pro-1.jpg" },
+      { nombre: "Xiaomi 13T Pro", precio: "$750", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13t-pro-1.jpg" },
+      { nombre: "Xiaomi 13", precio: "$800", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13-1.jpg" },
+      { nombre: "Xiaomi Mix 5", precio: "$1200", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mix-5-1.jpg" },
+      { nombre: "Xiaomi Civi 4 Pro", precio: "$600", imagen: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-civi-4-pro-1.jpg" },
+      { nombre: "Realme Note 50", specs: "4GB/128GB", precio: "$81", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-note-50-1.jpg" },
+      { nombre: "Realme Note 60s", specs: "8GB/256GB", precio: "$110", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-note-60s-1.jpg" },
+      { nombre: "Realme C21Y", specs: "4GB/64GB", precio: "$67", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-c21y-1.jpg" },
+      { nombre: "Realme C33", specs: "4GB/128GB", precio: "$88", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-c33-1.jpg" },
+      { nombre: "Realme C53", specs: "6GB/128GB NFC", precio: "$118", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-c53-1.jpg" },
+      { nombre: "Realme C53", specs: "8GB/256GB NFC", precio: "$122", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-c53-1.jpg" },
+      { nombre: "Realme C55", specs: "8GB/256GB", precio: "$160", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-c55-1.jpg" },
+      { nombre: "Realme C35", specs: "4GB/128GB + funda", precio: "$90", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-c35-1.jpg" },
+      { nombre: "Realme C61", specs: "8GB/256GB", precio: "$122", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-c61-1.jpg" },
+      { nombre: "Realme C67", specs: "8GB/256GB", precio: "$160", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-c67-1.jpg" },
+      { nombre: "Realme C75", specs: "8GB/256GB NFC", precio: "$170", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-c75-1.jpg" },
+      { nombre: "Realme 13 5G", specs: "12GB/256GB", precio: "$218", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-13-5g-1.jpg" },
+      { nombre: "Realme 12 5G", specs: "8GB/256GB", precio: "$190", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-12-5g-1.jpg" },
+      { nombre: "Realme 12+", specs: "12GB/512GB", precio: "$315", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-12-plus-1.jpg" },
+      { nombre: "Realme 11 Pro+ 5G", specs: "12GB/512GB + reloj", precio: "$335", imagen: "https://fdn2.gsmarena.com/vv/pics/realme/realme-11-pro-plus-5g-1.jpg" },
+    
+    
+      { nombre: "SMART 9", specs: "3+3GB/64GB", precio: "$65", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-smart9-1.jpg" },
+      { nombre: "SMART 9", specs: "4+4GB/128GB", precio: "$82", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-smart9-1.jpg" },
+      { nombre: "HOT 11 2022", specs: "4GB/64GB + Bluetooth", precio: "$75", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-hot11-2022-1.jpg" },
+      { nombre: "HOT 50i", specs: "4+4GB/256GB", precio: "$95", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-hot50i-1.jpg" },
+      { nombre: "HOT 50i", specs: "8+8GB/256GB", precio: "$110", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-hot50i-1.jpg" },
+      { nombre: "HOT 50 PRO", specs: "8+8GB/256GB", precio: "$144", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-hot50pro-1.jpg" },
+      { nombre: "HOT 50 PRO+", specs: "8+8GB/256GB", precio: "$165", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-hot50proplus-1.jpg" },
+      { nombre: "GT 20 PRO", specs: "12+12GB/256GB", precio: "$270", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-gt20pro-1.jpg" },
+      { nombre: "Infinix Note 12", specs: "8+5GB/256GB + Bluetooth", precio: "$130", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-note12-1.jpg" },
+      { nombre: "ZERO 30", specs: "8+8GB/256GB + Bluetooth", precio: "$195", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-zero30-1.jpg" },
+      { nombre: "ZERO 40", specs: "8+8GB/512GB", precio: "$230", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-zero40-1.jpg" },
+      { nombre: "INFINIX XPAD", specs: "4+4GB/128GB", precio: "$150", imagen: "https://fdn2.gsmarena.com/vv/pics/infinix/infinix-xpad-1.jpg" },
+      { nombre: "HUAVI H-120", specs: "-", precio: "$15", imagen: "https://via.placeholder.com/250" },
+      { nombre: "HUAVI CON WASAP", specs: "-", precio: "$24", imagen: "https://via.placeholder.com/250" },
+      { nombre: "HUAVI GOLD 77 3+3/64", specs: "3+3/64", precio: "$62", imagen: "https://via.placeholder.com/250" },
       
-       ];
+      { nombre: "CAT S42H+", specs: "Smartphone Resistente", precio: "$190", imagen: "https://fdn2.gsmarena.com/vv/pics/cat/cat-s42-1.jpg" },
+      { nombre: "CAT S62 PRO", specs: "Smartphone Térmico", precio: "$580", imagen: "https://fdn2.gsmarena.com/vv/pics/cat/cat-s62-pro-1.jpg" },
+
+      
+      { nombre: "ZTE L130", specs: "Smartphone Básico", precio: "$27", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-l130-1.jpg" },
+      { nombre: "ZTE A35Core", specs: "2+2/32", precio: "$38", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-a35core-1.jpg" },
+      { nombre: "ZTE A34", specs: "3+3/64", precio: "$58", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-a34-1.jpg" },
+      { nombre: "ZTE A35e", specs: "2+4/64", precio: "$58", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-a35e-1.jpg" },
+      { nombre: "ZTE A52", specs: "2/64", precio: "$60", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-a52-1.jpg" },
+      { nombre: "ZTE A54", specs: "4+4/128", precio: "$68", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-a54-1.jpg" },
+      { nombre: "ZTE A55", specs: "4+8/128", precio: "$72", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-a55-1.jpg" },
+      { nombre: "ZTE V50 Desing", specs: "6+10/256", precio: "$93", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-v50-design-1.jpg" },
+      { nombre: "ZTE V40 VITA", specs: "4+2/128", precio: "$85", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-v40-vita-1.jpg" },
+      { nombre: "ZTE V40 Desing", specs: "6+6/128", precio: "$90", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-v40-design-1.jpg" },
+      { nombre: "ZTE V60 Desing", specs: "6+8/256", precio: "$98", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-v60-design-1.jpg" },
+      { nombre: "ZTE V60 SMART", specs: "4+10/256", precio: "$88", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-v60-smart-1.jpg" },
+      { nombre: "ZTE Blade V 70", specs: "8+12/256", precio: "$134", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-blade-v70-1.jpg" },
+      { nombre: "ZTE V70 DESIGN", specs: "8+12/256", precio: "$115", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/zte-v70-design-1.jpg" },
+      { nombre: "NUBIA FOCUS 5G", specs: "6+10/256", precio: "$123", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/nubia-focus-5g-1.jpg" },
+      { nombre: "NUBIA FOCUS Pro 5G", specs: "8+12/256", precio: "$165", imagen: "https://fdn2.gsmarena.com/vv/pics/zte/nubia-focus-pro-5g-1.jpg" },
+      
+      { nombre: "Blu Joy", specs: "-", precio: "$24", imagen: "https://fdn2.gsmarena.com/vv/pics/blu/blu-joy.jpg" },
+      { nombre: "LG A270", specs: "-", precio: "$14", imagen: "https://fdn2.gsmarena.com/vv/pics/lg/lg-a270.jpg" },
+      { nombre: "Alcatel 10.5 Básico", specs: "-", precio: "$14", imagen: "https://fdn2.gsmarena.com/vv/pics/alcatel/alcatel-10.5.jpg" },
+      { nombre: "Samsung GTE1205Y", specs: "-", precio: "$14", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-gte1205y.jpg" },
+      { nombre: "Samsung B105E", specs: "-", precio: "$14", imagen: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-b105e.jpg" },
+      { nombre: "RENO 6 5G", specs: "8GB/128GB", precio: "$270", imagen: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno6-5g-1.jpg" },
+      { nombre: "OPPO BUDS 2", specs: "Auriculares", precio: "$40", imagen: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-enco-buds2-1.jpg" },
+      { nombre: "OPPO AIR 2", specs: "Auriculares", precio: "$47", imagen: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-enco-air2-1.jpg" },
+      { nombre: "OPPO BAND", specs: "Smartband", precio: "$40", imagen: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-band-style-1.jpg" },
    
-  // Lista de produtos Motorola
-  const productosMotorola = [
-    { nombre: "MOTOROLA EDGE 50 PRO 12/512", precio: "$410", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-pro-1.jpg" },
-    { nombre: "MOTOROLA EDGE 50 ULTRA 12/512", precio: "$730", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-ultra-1.jpg" },
-    { nombre: "MOTOROLA RAZR 50 ULTRA 12/512", precio: "$930", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-50-ultra-1.jpg" },
-    { nombre: "MOTOROLA RAZR 40 ULTRA 12/512", precio: "$670", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-40-ultra-1.jpg" },
-    { nombre: "MOTOROLA RAZR ULTRA PREMIUN COVER EDITION 12/512", precio: "$930", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-razr-ultra-premium-cover-1.jpg" },
-    { nombre: "MOTO C 1/16", precio: "$500", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-c-1-1.jpg" },
-    { nombre: "MOTO E 14 2/64", precio: "$65", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-e-14-1.jpg" },
-    { nombre: "MOTO G 24 4/128", precio: "$89", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-24-1.jpg" },
-    { nombre: "MOTO G 04S 4/256", precio: "$98", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-04s-1.jpg" },
-    { nombre: "MOTO G 35 5G 4/256", precio: "$155", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-35-5g-1.jpg" },
-    { nombre: "MOTO G 75 5G 8/256", precio: "$210", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-75-5g-1.jpg" },
-    { nombre: "MOTO G85 5G 8/256", precio: "$220", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g85-5g-1.jpg" },
-    { nombre: "EDGE 50 FUSIÓN 8/256", precio: "$245", imagen: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-50-fusion-1.jpg" }
+      { nombre: "HONOR MAGIC 7 PRO", specs: "12GB/512GB", precio: "$1040", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-magic7pro-1.jpg" },
+      { nombre: "HONOR MAGIC 5 PRO", specs: "12GB/512GB", precio: "$800", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-magic5pro-1.jpg" },
+      { nombre: "HONOR MAGIC 5 PRO + RELOJ WATCH 5", specs: "12GB/512GB", precio: "$840", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-magic5pro-1.jpg" },
+      { nombre: "HONOR MAGIC 4 PRO + Band 9", specs: "5G 8GB/256GB", precio: "$490", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-magic4pro-1.jpg" },
+      { nombre: "HONOR 200", specs: "12GB/256GB", precio: "$370", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-200-1.jpg" },
+      { nombre: "HONOR 200", specs: "12GB/512GB", precio: "$390", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-200-1.jpg" },
+      { nombre: "HONOR 400 LITE", specs: "12GB/256GB", precio: "$250", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-400lite-1.jpg" },
+      { nombre: "MAGIC 7 LITE", specs: "8GB/256GB", precio: "$278", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-magic7lite-1.jpg" },
+      { nombre: "MAGIC 7 LITE", specs: "8GB/512GB", precio: "$297", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-magic7lite-1.jpg" },
+      { nombre: "HONOR 90", specs: "8GB/256GB", precio: "$320", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-90-1.jpg" },
+      { nombre: "HONOR 70", specs: "8GB/128GB", precio: "$295", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-70-1.jpg" },
+      { nombre: "HONOR 90 LITE", specs: "8+5GB/256GB", precio: "$160", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-90lite-1.jpg" },
+      { nombre: "HONOR X8C", specs: "8GB/256GB", precio: "$196", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-x8c-1.jpg" },
+      { nombre: "HONOR X7C", specs: "8GB/256GB", precio: "$156", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-x7c-1.jpg" },
+      { nombre: "HONOR X9", specs: "8+2GB/128GB", precio: "$160", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-x9-1.jpg" },
+      { nombre: "HONOR X8", specs: "6+2GB/128GB", precio: "$115", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-x8-1.jpg" },
+      { nombre: "HONOR X5B PLUS", specs: "4GB/256GB", precio: "$94", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-x5bplus-1.jpg" },
+      { nombre: "HONOR X6B", specs: "4GB/128GB", precio: "$89", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-x6b-1.jpg" },
+      { nombre: "HONOR X5B", specs: "4GB/64GB", precio: "$72", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-x5b-1.jpg" },
+      { nombre: "HONOR X5B", specs: "4GB/128GB", precio: "$80", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-x5b-1.jpg" },
+      { nombre: "HONOR TAB X8a", specs: "4GB/128GB", precio: "$168", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-tabx8a-1.jpg" },
+      { nombre: "HONOR TAB X9", specs: "4GB/128GB", precio: "$205", imagen: "https://fdn2.gsmarena.com/vv/pics/honor/honor-tabx9-1.jpg" },
+  
+  
+  
+  
+  
   ];
-  // Função para exibir os produtos
-  function displayProducts(productList, containerId) {
+
+ 
+   
+   // Função para exibir os produtos
+   function displayProducts(productList, containerId) {
     const container = document.getElementById(containerId);
     productList.forEach(product => {
       const card = document.createElement('div');
@@ -495,34 +625,14 @@ button.huavi {
         <img alt="${product.nombre}" src="${product.imagen}"/>
         <h2>${product.nombre}</h2>
         <p>Preço: ${product.precio}</p>
-        <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${product.nombre}" target="_blank">
-          Contactar por WhatsApp
-        </a>
+        <a href="https://wa.me/59167728519?text=Quiero%20este%20${encodeURIComponent(product.nombre)}">Comprar por WhatsApp</a>
       `;
       container.appendChild(card);
     });
   }
-  
-  // Exibe os produtos Motorola
-  displayProducts(productosMotorola, 'productos-motorola-container');
-  const container = document.getElementById('productos-container');
-  productos.forEach(producto => {
-    
-    
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <img alt="${producto.nombre}" src="${producto.imagen}"/>
-      <h2>${producto.nombre}</h2>
-      <h3>${producto.ram}</h3>
-      <h3>${producto.almacenamiento}</h3>
-      <p>Precio: ${producto.precio}</p>
-      <a href="https://wa.me/59167728519?text=Quiero%20este%20artículo%3A%20${producto.nombre}%20${producto.ram}%20${producto.almacenamiento}%20${producto.precio}" target="_blank">
-        Contactar por WhatsApp
-      </a>  o
-    `;
-    container.appendChild(card);
-  });
+
+  // Carregar os produtos
+  displayProducts(productos, 'productos-container');
   
   const inputFiltro = document.getElementById('filtro');
   inputFiltro.addEventListener('input', () => {
@@ -574,5 +684,5 @@ button.huavi {
     <p>Hecho con ❤️ para ofrecer la mejor tecnología.</p>
   </div>
 </footer>
-</html>
-<!-- Fin del HTML -->
+
+  </html>
